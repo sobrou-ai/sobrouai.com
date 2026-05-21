@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobrou AI · IA para reduzir desperdício em cozinhas profissionais</title>
+  <meta name="description"
+    content="A Sobrou AI mede desperdício em cozinhas profissionais, transforma sobras em reais e recomenda ajustes de produção por turno." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iU29icm91IEFJIGZhdmljb24iPgogIDx0aXRsZT5Tb2Jyb3UgQUk8L3RpdGxlPgogIDxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiByeD0iMzYiIGZpbGw9IiMwRjNBMjMiLz4KICA8cGF0aCBkPSJNIDMwIDgwCiAgICAgICAgICAgQyAzMCA1NSwgNTAgNDYsIDcwIDQ2CiAgICAgICAgICAgUSAxMDAgNDYsIDEwMCA0NgogICAgICAgICAgIFEgMTMwIDQ2LCAxNTAgNDYKICAgICAgICAgICBDIDE3MCA0NiwgMTcwIDU1LCAxNzAgODAKICAgICAgICAgICBMIDE3MCAxNDUKICAgICAgICAgICBDIDE3MCAxNzUsIDE0NSAxOTAsIDEyMCAxOTAKICAgICAgICAgICBMIDgwIDE5MAogICAgICAgICAgIEMgNTUgMTkwLCAzMCAxNzUsIDMwIDE0NSBaIgogICAgICAgIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0E3RTM0QiIgc3Ryb2tlLXdpZHRoPSIxNCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDx0ZXh0IHg9IjEwMCIgeT0iMTQ4IgogICAgICAgIGZvbnQtZmFtaWx5PSJNYW5yb3BlLCBBcmlhbCBSb3VuZGVkIE1UIEJvbGQsIHNhbnMtc2VyaWYiCiAgICAgICAgZm9udC1zaXplPSIxMDgiIGZvbnQtd2VpZ2h0PSI5MDAiCiAgICAgICAgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0E3RTM0QiIgbGV0dGVyLXNwYWNpbmc9Ii00Ij5haTwvdGV4dD4KPC9zdmc+">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="container nav-inner">
+      <a href="#top" aria-label="Sobrou AI início"><img class="logo"
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgwIiBoZWlnaHQ9IjM4MCIgdmlld0JveD0iMCAwIDEyODAgMzgwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNvYnJvdSBBSSI+CiAgPHRpdGxlPlNvYnJvdSBBSTwvdGl0bGU+CiAgCiAgPHRleHQgeD0iNDAiIHk9IjI3MCIKICAgICAgICBmb250LWZhbWlseT0iTWFucm9wZSwgQXJpYWwgUm91bmRlZCBNVCBCb2xkLCBOdW5pdG8sIEludGVyLCBzeXN0ZW0tdWksIHNhbnMtc2VyaWYiCiAgICAgICAgZm9udC1zaXplPSIyMjAiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMxRjVFM0IiIGxldHRlci1zcGFjaW5nPSItOSI+U29icm91PC90ZXh0PgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkwNSA0NSkgc2NhbGUoMS4yNSkiIGlkPSJzb2Jyb3Utc3ltYm9sIj4KICA8IS0tIEZvbGhhIGdyYW5kZSAoZXNxdWVyZGEsIHZhaSBwcmEgY2ltYS1lc3F1ZXJkYSkgLS0+CiAgPHBhdGggZD0iTSAxMTAgOTUKICAgICAgICAgICBDIDk2IDYwLCA3MCAzMiwgMzIgMjgKICAgICAgICAgICBDIDM2IDY0LCA2MCA5MiwgMTAwIDEwMAogICAgICAgICAgIFEgMTA4IDEwMCwgMTEwIDk1IFoiCiAgICAgICAgZmlsbD0iIzFGNUUzQiIvPgogIDwhLS0gRm9saGEgcGVxdWVuYSAoZGlyZWl0YSwgbWVub3IpIC0tPgogIDxwYXRoIGQ9Ik0gMTE2IDkyCiAgICAgICAgICAgQyAxMzggNjQsIDE2MiA0OCwgMTg4IDQyCiAgICAgICAgICAgQyAxODQgNzAsIDE2MiA4OCwgMTMwIDk4CiAgICAgICAgICAgUSAxMjAgMTAwLCAxMTYgOTYgWiIKICAgICAgICBmaWxsPSIjQTdFMzRCIi8+CiAgPCEtLSBDYXVsZSBjb25lY3RhbmRvIGZvbGhhcyDDoCBtYcOnw6MgLS0+CiAgPHBhdGggZD0iTSAxMTAgOTYgTCAxMTAgMTE1IgogICAgICAgIHN0cm9rZT0iIzFGNUUzQiIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIE1hw6fDozogcm91bmRlZC1zcXVhcmUgY29tIGNhbnRvcyBnZW5lcm9zb3MgLS0+CiAgPHBhdGggZD0iTSAzMCAxNTUKICAgICAgICAgICBDIDMwIDEyMCwgNTUgMTE1LCA4MCAxMTUKICAgICAgICAgICBMIDE0MCAxMTUKICAgICAgICAgICBDIDE2NSAxMTUsIDE5MCAxMjAsIDE5MCAxNTUKICAgICAgICAgICBMIDE5MCAyMDAKICAgICAgICAgICBDIDE5MCAyMzUsIDE2NSAyNTAsIDE0MCAyNTAKICAgICAgICAgICBMIDgwIDI1MAogICAgICAgICAgIEMgNTUgMjUwLCAzMCAyMzUsIDMwIDIwMCBaIgogICAgICAgIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0E3RTM0QiIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDwhLS0gYWkgdGV4dG8gLS0+CiAgPHRleHQgeD0iMTEwIiB5PSIyMTUiCiAgICAgICAgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIEFyaWFsIFJvdW5kZWQgTVQgQm9sZCwgTnVuaXRvLCBJbnRlciwgc3lzdGVtLXVpLCBzYW5zLXNlcmlmIgogICAgICAgIGZvbnQtc2l6ZT0iOTIiIGZvbnQtd2VpZ2h0PSI5MDAiCiAgICAgICAgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0E3RTM0QiIgbGV0dGVyLXNwYWNpbmc9Ii0yIj5haTwvdGV4dD4KPC9nPgo8L3N2Zz4="
+          alt="Sobrou AI"></a>
+      <div class="nav-links">
+        <a href="#roi">Calculadora ROI</a>
+        <a href="#demo">Veja em ação</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato" class="nav-cta" data-track="nav_cta">Quero piloto</a>
+        <button class="mobile-menu" data-open-chat>Falar</button>
+      </div>
+    </div>
+  </nav>
+  <header class="hero" id="top">
+    <div class="hero-video" aria-hidden="true">
+      <div class="video-grid">
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+        <div class="video-card"><span></span><span></span><b></b></div>
+      </div>
+    </div>
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <span class="eyebrow"><i></i> Piloto gratuito · 30 dias · sem hardware proprietário</span>
+        <h1 id="heroHeadline">O desperdício da sua cozinha, em <em>reais</em>. E o ajuste pro próximo turno.</h1>
+        <p class="hero-sub">A Sobrou AI mede sobras por turno, transforma quilos em impacto financeiro e entrega
+          recomendações práticas para produzir melhor amanhã.</p>
+        <div class="actions">
+          <a href="#contato" class="btn btn-primary" data-track="hero_primary_cta">Quero rodar um piloto →</a>
+          <a href="#roi" class="btn btn-ghost" data-track="hero_roi_cta">Calcular possível economia</a>
+        </div>
+        <div class="hero-proof">
+          <span class="proof-pill">Registro em ~15s</span>
+          <span class="proof-pill">Dashboard em R$ e kg</span>
+          <span class="proof-pill">Relatório semanal</span>
+        </div>
+      </div>
+      <div class="hero-panel reveal">
+        <div class="dashboard" data-parallax="0.035">
+          <div class="dash-top">
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgwIiBoZWlnaHQ9IjM4MCIgdmlld0JveD0iMCAwIDEyODAgMzgwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNvYnJvdSBBSSI+CiAgPHRpdGxlPlNvYnJvdSBBSTwvdGl0bGU+CiAgCiAgPHRleHQgeD0iNDAiIHk9IjI3MCIKICAgICAgICBmb250LWZhbWlseT0iTWFucm9wZSwgQXJpYWwgUm91bmRlZCBNVCBCb2xkLCBOdW5pdG8sIEludGVyLCBzeXN0ZW0tdWksIHNhbnMtc2VyaWYiCiAgICAgICAgZm9udC1zaXplPSIyMjAiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiNGN0Y0RUEiIGxldHRlci1zcGFjaW5nPSItOSI+U29icm91PC90ZXh0PgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkwNSA0NSkgc2NhbGUoMS4yNSkiIGlkPSJzb2Jyb3Utc3ltYm9sIj4KICA8IS0tIEZvbGhhIGdyYW5kZSAoZXNxdWVyZGEsIHZhaSBwcmEgY2ltYS1lc3F1ZXJkYSkgLS0+CiAgPHBhdGggZD0iTSAxMTAgOTUKICAgICAgICAgICBDIDk2IDYwLCA3MCAzMiwgMzIgMjgKICAgICAgICAgICBDIDM2IDY0LCA2MCA5MiwgMTAwIDEwMAogICAgICAgICAgIFEgMTA4IDEwMCwgMTEwIDk1IFoiCiAgICAgICAgZmlsbD0iI0Y3RjRFQSIvPgogIDwhLS0gRm9saGEgcGVxdWVuYSAoZGlyZWl0YSwgbWVub3IpIC0tPgogIDxwYXRoIGQ9Ik0gMTE2IDkyCiAgICAgICAgICAgQyAxMzggNjQsIDE2MiA0OCwgMTg4IDQyCiAgICAgICAgICAgQyAxODQgNzAsIDE2MiA4OCwgMTMwIDk4CiAgICAgICAgICAgUSAxMjAgMTAwLCAxMTYgOTYgWiIKICAgICAgICBmaWxsPSIjQTdFMzRCIi8+CiAgPCEtLSBDYXVsZSBjb25lY3RhbmRvIGZvbGhhcyDDoCBtYcOnw6MgLS0+CiAgPHBhdGggZD0iTSAxMTAgOTYgTCAxMTAgMTE1IgogICAgICAgIHN0cm9rZT0iI0Y3RjRFQSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIE1hw6fDozogcm91bmRlZC1zcXVhcmUgY29tIGNhbnRvcyBnZW5lcm9zb3MgLS0+CiAgPHBhdGggZD0iTSAzMCAxNTUKICAgICAgICAgICBDIDMwIDEyMCwgNTUgMTE1LCA4MCAxMTUKICAgICAgICAgICBMIDE0MCAxMTUKICAgICAgICAgICBDIDE2NSAxMTUsIDE5MCAxMjAsIDE5MCAxNTUKICAgICAgICAgICBMIDE5MCAyMDAKICAgICAgICAgICBDIDE5MCAyMzUsIDE2NSAyNTAsIDE0MCAyNTAKICAgICAgICAgICBMIDgwIDI1MAogICAgICAgICAgIEMgNTUgMjUwLCAzMCAyMzUsIDMwIDIwMCBaIgogICAgICAgIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0E3RTM0QiIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDwhLS0gYWkgdGV4dG8gLS0+CiAgPHRleHQgeD0iMTEwIiB5PSIyMTUiCiAgICAgICAgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIEFyaWFsIFJvdW5kZWQgTVQgQm9sZCwgTnVuaXRvLCBJbnRlciwgc3lzdGVtLXVpLCBzYW5zLXNlcmlmIgogICAgICAgIGZvbnQtc2l6ZT0iOTIiIGZvbnQtd2VpZ2h0PSI5MDAiCiAgICAgICAgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0E3RTM0QiIgbGV0dGVyLXNwYWNpbmc9Ii0yIj5haTwvdGV4dD4KPC9nPgo8L3N2Zz4="
+              alt="Sobrou AI">
+            <span class="live-dot">Dashboard ao vivo</span>
+          </div>
+          <div class="dash-grid">
+            <div class="metric"><label>Perda estimada · semana</label><strong>R$ 2.456</strong><small>+12% vs semana
+                anterior</small></div>
+            <div class="metric"><label>Sobra mapeada</label><strong>45,7 kg</strong><small>-8% após ajuste</small></div>
+          </div>
+          <div class="chart-box">
+            <div class="chart-head"><span>Sobra por dia · kg</span><span>Quarta fora do padrão</span></div>
+            <div class="bars">
+              <div class="bar" style="height:38%"></div>
+              <div class="bar" style="height:54%"></div>
+              <div class="bar" style="height:94%"></div>
+              <div class="bar" style="height:61%"></div>
+              <div class="bar" style="height:45%"></div>
+              <div class="bar" style="height:31%"></div>
+              <div class="bar" style="height:24%"></div>
+            </div>
+          </div>
+          <div class="reco">
+            <h4>Recomendação para amanhã</h4>
+            <div class="reco-row"><span>Reduzir arroz branco no almoço de quarta</span><b>-12%</b></div>
+            <div class="reco-row"><span>Revisar reposição de salada quente às 13h</span><b>R$ 488</b></div>
+            <div class="reco-row"><span>Investigar sobra fora do padrão no buffet</span><b>Alta</b></div>
+          </div>
+        </div>
+        <div class="float-card"><b>ROI 8,7x</b><span>Projeção baseada em economia mensal estimada e mensalidade
+            simulada.</span></div>
+      </div>
+    </div>
+  </header>
+  <section class="problem" id="problema">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">O problema</span>
+        <h2>Sobra sem dado vira custo invisível.</h2>
+        <p>Em restaurantes por kg, hotéis e cozinhas industriais, a perda costuma ser tratada como rotina. A Sobrou AI
+          transforma essa rotina em painel de decisão.</p>
+      </div>
+      <div class="problem-grid">
+        <article class="problem-card reveal">
+          <div><strong>15-25%</strong>
+            <p>Faixa de desperdício comum em operações de buffet quando não existe medição por turno.</p>
+          </div><small>Estimativa operacional para validação comercial.</small>
+        </article>
+        <article class="problem-card reveal">
+          <div><strong>R$ 120k</strong>
+            <p>Potencial anual de perda em uma operação média quando o CMV das sobras não é acompanhado.</p>
+          </div><small>Use a calculadora para adaptar ao cliente.</small>
+        </article>
+        <article class="problem-card reveal">
+          <div><strong>2-4 p.p.</strong>
+            <p>Margem potencialmente recuperável quando produção, reposição e porcionamento passam a usar dado real.</p>
+          </div><small>Meta do piloto: provar em 30 dias.</small>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="como-funciona">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="tag">Como funciona</span>
+        <h2>Fluxo rápido para cozinha real.</h2>
+        <p>O MVP foi pensado para não depender de IA perfeita no primeiro dia: o sistema sugere, a equipe confirma e a
+          base melhora com cada registro.</p>
+      </div>
+      <div class="steps-grid">
+        <article class="step reveal">
+          <div class="step-num">01</div>
+          <h3>Registra a sobra</h3>
+          <p>A equipe pesa o descarte, tira foto ou usa a câmera do celular/tablet e seleciona origem: buffet, produção,
+            prato ou estoque.</p>
+        </article>
+        <article class="step reveal">
+          <div class="step-num">02</div>
+          <h3>Calcula o custo</h3>
+          <p>O sistema cruza peso, categoria e custo médio por kg para mostrar o desperdício por item, turno, dia e
+            unidade.</p>
+        </article>
+        <article class="step reveal">
+          <div class="step-num">03</div>
+          <h3>Recomenda ação</h3>
+          <p>O gestor recebe recomendação objetiva: reduzir produção, ajustar reposição, revisar porção ou investigar
+            anomalias.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="roi">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">Calculadora de ROI</span>
+        <h2>Calcule quanto a sua cozinha pode recuperar.</h2>
+        <p>Simule o impacto financeiro do desperdício usando dados simples da sua operação. A estimativa ajuda a
+          visualizar o tamanho da perda e o potencial de economia antes do piloto.</p>
+      </div>
+      <div class="roi-wrap">
+        <div class="roi-card reveal">
+          <div class="form-grid" id="roiForm">
+            <div class="field"><label>Refeições por dia</label><input id="meals" type="number" min="1" value="350"><span
+                class="hint">Ex.: 350 almoços/dia</span></div>
+            <div class="field"><label>Dias por mês</label><input id="days" type="number" min="1" max="31"
+                value="26"><span class="hint">Dias de operação</span></div>
+            <div class="field"><label>Custo médio por refeição (R$)</label><input id="costMeal" type="number" min="1"
+                step="0.5" value="13.50"><span class="hint">CMV aproximado</span></div>
+            <div class="field"><label>Desperdício estimado (%)</label><input id="wastePct" type="number" min="1"
+                max="50" step="0.5" value="14"><span class="hint">Sem medição, use 10% a 20%</span></div>
+            <div class="field"><label>Categoria com maior sobra</label><select id="wasteCategory">
+                <option value="arroz" selected>Arroz</option>
+                <option value="feijao">Feijão</option>
+                <option value="salada">Salada</option>
+                <option value="proteina">Proteína</option>
+                <option value="cafe">Café da manhã</option>
+                <option value="padaria">Padaria / rotisseria</option>
+                <option value="misto">Misto / buffet</option>
+              </select><span class="hint">Atualiza a imagem ilustrativa ao lado</span></div>
+            <div class="field full"><label>Redução esperada com Sobrou AI: <b id="reductionLabel">22%</b></label>
+              <div class="range-line"><input id="reductionPct" type="range" min="5" max="45" value="22"><span
+                  class="hint">Meta do piloto</span></div>
+            </div>
+            <div class="field full"><label>Mensalidade simulada Sobrou AI (R$)</label><input id="monthlyFee"
+                type="number" min="0" value="1200"><span class="hint">Altere para testar planos</span></div>
+          </div>
+        </div>
+        <div class="roi-result reveal">
+          <div class="roi-illustration">
+            <img id="roiArtImage" class="roi-art" src="" alt="Ilustração da categoria selecionada">
+            <div class="roi-art-copy">
+              <small>Visual da categoria</small>
+              <h3 id="roiArtTitle">Arroz</h3>
+              <p id="roiArtText">Use esta imagem para deixar a calculadora mais contextual e tangível na conversa com o
+                cliente.</p>
+            </div>
+          </div>
+          <div class="roi-total">
+            <div class="result-box"><span>Perda mensal estimada</span><strong id="monthlyWaste">R$
+                0</strong><small>Valor do desperdício antes do piloto.</small></div>
+            <div class="result-box lime"><span>Economia possível</span><strong id="monthlySaving">R$
+                0</strong><small>Redução estimada após ação.</small></div>
+          </div>
+          <div class="roi-table">
+            <div class="roi-row"><span>Perda anual estimada</span><b id="annualWaste">R$ 0</b></div>
+            <div class="roi-row"><span>Economia anual possível</span><b id="annualSaving">R$ 0</b></div>
+            <div class="roi-row"><span>Payback estimado</span><b id="payback">0 mês</b></div>
+            <div class="roi-row"><span>ROI estimado sobre mensalidade</span><b id="roiMultiple">0x</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="demo" id="demo">
+    <div class="container demo-grid">
+      <div class="reveal">
+        <span class="tag">Veja em ação</span>
+        <h2>Mini-demo embutida do registro de descarte.</h2>
+        <p class="section-head p">Clique nas etapas para simular a experiência de cozinha: foto, peso, sugestão de IA e
+          confirmação humana.</p>
+        <div class="demo-controls">
+          <button class="demo-step active" data-demo="0"><b>1. Captura</b><span>Funcionário aponta o celular/tablet para
+              o recipiente.</span></button>
+          <button class="demo-step" data-demo="1"><b>2. IA sugere</b><span>Sistema sugere categoria com
+              confiança.</span></button>
+          <button class="demo-step" data-demo="2"><b>3. Confirma</b><span>Um toque salva peso, foto, categoria e
+              custo.</span></button>
+        </div>
+      </div>
+      <div class="phone reveal" aria-label="Simulação da tela do produto">
+        <div class="phone-top"><img
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgwIiBoZWlnaHQ9IjM4MCIgdmlld0JveD0iMCAwIDEyODAgMzgwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNvYnJvdSBBSSI+CiAgPHRpdGxlPlNvYnJvdSBBSTwvdGl0bGU+CiAgCiAgPHRleHQgeD0iNDAiIHk9IjI3MCIKICAgICAgICBmb250LWZhbWlseT0iTWFucm9wZSwgQXJpYWwgUm91bmRlZCBNVCBCb2xkLCBOdW5pdG8sIEludGVyLCBzeXN0ZW0tdWksIHNhbnMtc2VyaWYiCiAgICAgICAgZm9udC1zaXplPSIyMjAiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMxRjVFM0IiIGxldHRlci1zcGFjaW5nPSItOSI+U29icm91PC90ZXh0PgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkwNSA0NSkgc2NhbGUoMS4yNSkiIGlkPSJzb2Jyb3Utc3ltYm9sIj4KICA8IS0tIEZvbGhhIGdyYW5kZSAoZXNxdWVyZGEsIHZhaSBwcmEgY2ltYS1lc3F1ZXJkYSkgLS0+CiAgPHBhdGggZD0iTSAxMTAgOTUKICAgICAgICAgICBDIDk2IDYwLCA3MCAzMiwgMzIgMjgKICAgICAgICAgICBDIDM2IDY0LCA2MCA5MiwgMTAwIDEwMAogICAgICAgICAgIFEgMTA4IDEwMCwgMTEwIDk1IFoiCiAgICAgICAgZmlsbD0iIzFGNUUzQiIvPgogIDwhLS0gRm9saGEgcGVxdWVuYSAoZGlyZWl0YSwgbWVub3IpIC0tPgogIDxwYXRoIGQ9Ik0gMTE2IDkyCiAgICAgICAgICAgQyAxMzggNjQsIDE2MiA0OCwgMTg4IDQyCiAgICAgICAgICAgQyAxODQgNzAsIDE2MiA4OCwgMTMwIDk4CiAgICAgICAgICAgUSAxMjAgMTAwLCAxMTYgOTYgWiIKICAgICAgICBmaWxsPSIjQTdFMzRCIi8+CiAgPCEtLSBDYXVsZSBjb25lY3RhbmRvIGZvbGhhcyDDoCBtYcOnw6MgLS0+CiAgPHBhdGggZD0iTSAxMTAgOTYgTCAxMTAgMTE1IgogICAgICAgIHN0cm9rZT0iIzFGNUUzQiIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIE1hw6fDozogcm91bmRlZC1zcXVhcmUgY29tIGNhbnRvcyBnZW5lcm9zb3MgLS0+CiAgPHBhdGggZD0iTSAzMCAxNTUKICAgICAgICAgICBDIDMwIDEyMCwgNTUgMTE1LCA4MCAxMTUKICAgICAgICAgICBMIDE0MCAxMTUKICAgICAgICAgICBDIDE2NSAxMTUsIDE5MCAxMjAsIDE5MCAxNTUKICAgICAgICAgICBMIDE5MCAyMDAKICAgICAgICAgICBDIDE5MCAyMzUsIDE2NSAyNTAsIDE0MCAyNTAKICAgICAgICAgICBMIDgwIDI1MAogICAgICAgICAgIEMgNTUgMjUwLCAzMCAyMzUsIDMwIDIwMCBaIgogICAgICAgIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0E3RTM0QiIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDwhLS0gYWkgdGV4dG8gLS0+CiAgPHRleHQgeD0iMTEwIiB5PSIyMTUiCiAgICAgICAgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIEFyaWFsIFJvdW5kZWQgTVQgQm9sZCwgTnVuaXRvLCBJbnRlciwgc3lzdGVtLXVpLCBzYW5zLXNlcmlmIgogICAgICAgIGZvbnQtc2l6ZT0iOTIiIGZvbnQtd2VpZ2h0PSI5MDAiCiAgICAgICAgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0E3RTM0QiIgbGV0dGVyLXNwYWNpbmc9Ii0yIj5haTwvdGV4dD4KPC9nPgo8L3N2Zz4="
+            alt="Sobrou AI"><span class="live-dot" style="color:var(--verde)">Online</span></div>
+        <div class="screen-title" id="demoTitle">Registrar sobra</div>
+        <p id="demoText" style="color:rgba(31,41,51,.65)">Aponte para o recipiente. A Sobrou AI captura a imagem e
+          prepara a sugestão.</p>
+        <div class="scan-box">
+          <div class="scan-line"></div>
+        </div>
+        <div class="suggestion">
+          <div class="suggestion-row"><span>Categoria sugerida</span><b id="demoCategory">Arroz branco</b></div>
+          <div class="suggestion-row"><span>Peso registrado</span><b id="demoWeight">6,8 kg</b></div>
+          <div class="suggestion-row"><span>Custo estimado</span><b id="demoCost">R$ 74,80</b></div>
+          <div class="suggestion-row"><span>Confiança IA</span><b id="demoTrust">87%</b></div>
+        </div>
+        <button class="demo-confirm" data-track="demo_confirm">Confirmar e salvar evento</button>
+      </div>
+    </div>
+  </section>
+  <section id="resultados">
+    <div class="container">
+      <div class="section-head center reveal"><span class="tag">O que você recebe</span>
+        <h2>Dados claros para decidir melhor no próximo turno.</h2>
+        <p>A Sobrou AI foi pensada para transformar a sobra da cozinha em informação prática: quanto custou, onde
+          aconteceu e qual ajuste fazer.</p>
+      </div>
+      <div class="features-grid">
+        <article class="feature reveal"><i>R$</i>
+          <h3>Desperdício em reais</h3>
+          <p>Veja a perda por dia, semana, turno, categoria e unidade, sem depender de planilhas soltas.</p>
+        </article>
+        <article class="feature reveal"><i>✓</i>
+          <h3>Recomendações práticas</h3>
+          <p>Receba ações objetivas para reduzir produção excessiva, ajustar reposição e investigar pontos fora do
+            padrão.</p>
+        </article>
+        <article class="feature reveal"><i>↗</i>
+          <h3>Relatório executivo</h3>
+          <p>Acompanhe evolução, economia estimada e principais oportunidades para apresentar ao dono ou à diretoria.
+          </p>
+        </article>
+        <article class="feature reveal"><i>15s</i>
+          <h3>Registro simples</h3>
+          <p>A equipe registra sobra com poucos campos, usando celular/tablet e balança da própria operação no piloto.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section id="faq">
+    <div class="container">
+      <div class="section-head center reveal"><span class="tag">FAQ</span>
+        <h2>Dúvidas frequentes</h2>
+      </div>
+      <div class="faq-list">
+        <article class="faq-item reveal open"><button class="faq-q"><span>Preciso comprar câmera, balança ou
+              tablet?</span><span>+</span></button>
+          <div class="faq-a">
+            <p>Não para o piloto. A versão inicial pode usar balança existente e celular/tablet. Integração automática
+              com balança entra como evolução quando fizer sentido.</p>
+          </div>
+        </article>
+        <article class="faq-item reveal"><button class="faq-q"><span>A IA reconhece todos os pratos
+              automaticamente?</span><span>+</span></button>
+          <div class="faq-a">
+            <p>No MVP, a IA sugere e o funcionário confirma. Isso evita erro com pratos brasileiros parecidos e ainda
+              cria dataset próprio para melhorar a automação.</p>
+          </div>
+        </article>
+        <article class="faq-item reveal"><button class="faq-q"><span>Como vocês provam economia em 30
+              dias?</span><span>+</span></button>
+          <div class="faq-a">
+            <p>Medindo a linha de base, identificando top itens desperdiçados, executando ajustes semanais e comparando
+              desperdício em kg e R$ antes/depois.</p>
+          </div>
+        </article>
+        <article class="faq-item reveal"><button class="faq-q"><span>Meus dados ficam
+              protegidos?</span><span>+</span></button>
+          <div class="faq-a">
+            <p>Sim. Dados específicos da sua operação, como custos, cardápio e volume, são tratados como confidenciais.
+              Qualquer estudo de caso público depende de autorização.</p>
+          </div>
+        </article>
+        <article class="faq-item reveal"><button class="faq-q"><span>Funciona para hotel, hospital e cozinha
+              industrial?</span><span>+</span></button>
+          <div class="faq-a">
+            <p>Sim, principalmente quando existe rotina de produção, volume diário e sobra mensurável por turno, buffet,
+              unidade ou categoria.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="cta-zone" id="contato">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div>
+          <span class="tag">Entre para o piloto</span>
+          <h2>Descubra quanto sua cozinha joga fora antes de contratar.</h2>
+          <p>Deixe os dados da operação. O formulário já tem validação inline e eventos de tracking. Depois é só
+            conectar com RD Station, HubSpot, Airtable, Supabase ou seu backend.</p>
+        </div>
+        <form class="lead-form" id="leadForm" novalidate>
+          <div class="field"><label>Nome</label><input name="nome" placeholder="Seu nome" required minlength="2"><span
+              class="hint"></span></div>
+          <div class="field"><label>WhatsApp</label><input name="whatsapp" placeholder="(71) 99999-9999" required
+              pattern="^[0-9()\s+.-]{10,}$"><span class="hint"></span></div>
+          <div class="field"><label>E-mail</label><input name="email" type="email" placeholder="voce@empresa.com"
+              required><span class="hint"></span></div>
+          <div class="field"><label>Tipo de operação</label><select name="tipo" required>
+              <option value="" selected disabled>Selecione</option>
+              <option>Restaurante por kg</option>
+              <option>Hotel com buffet</option>
+              <option>Cozinha industrial</option>
+              <option>Hospital</option>
+              <option>Escola privada</option>
+              <option>Supermercado/rotisseria</option>
+              <option>Outro</option>
+            </select><span class="hint"></span></div>
+          <div class="field"><label>Refeições/dia</label><input name="volume" type="number" min="20"
+              placeholder="Ex.: 350" required><span class="hint"></span></div>
+          <div class="field"><label>Cidade</label><input name="cidade" placeholder="Salvador, BA" required
+              minlength="2"><span class="hint"></span></div>
+          <div class="field full"><label>O que mais sobra hoje?</label><textarea name="mensagem" rows="3"
+              placeholder="Ex.: arroz, salada, guarnições, buffet de café da manhã..."></textarea><span
+              class="hint"></span></div>
+          <button class="submit" type="submit" data-track="lead_submit">Quero validar minha cozinha →</button>
+          <div class="form-success" id="formSuccess">Recebemos seus dados. Em breve entraremos em contato para entender
+            sua operação e avaliar o piloto.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div><img
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgwIiBoZWlnaHQ9IjM4MCIgdmlld0JveD0iMCAwIDEyODAgMzgwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNvYnJvdSBBSSI+CiAgPHRpdGxlPlNvYnJvdSBBSTwvdGl0bGU+CiAgCiAgPHRleHQgeD0iNDAiIHk9IjI3MCIKICAgICAgICBmb250LWZhbWlseT0iTWFucm9wZSwgQXJpYWwgUm91bmRlZCBNVCBCb2xkLCBOdW5pdG8sIEludGVyLCBzeXN0ZW0tdWksIHNhbnMtc2VyaWYiCiAgICAgICAgZm9udC1zaXplPSIyMjAiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMxRjVFM0IiIGxldHRlci1zcGFjaW5nPSItOSI+U29icm91PC90ZXh0PgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkwNSA0NSkgc2NhbGUoMS4yNSkiIGlkPSJzb2Jyb3Utc3ltYm9sIj4KICA8IS0tIEZvbGhhIGdyYW5kZSAoZXNxdWVyZGEsIHZhaSBwcmEgY2ltYS1lc3F1ZXJkYSkgLS0+CiAgPHBhdGggZD0iTSAxMTAgOTUKICAgICAgICAgICBDIDk2IDYwLCA3MCAzMiwgMzIgMjgKICAgICAgICAgICBDIDM2IDY0LCA2MCA5MiwgMTAwIDEwMAogICAgICAgICAgIFEgMTA4IDEwMCwgMTEwIDk1IFoiCiAgICAgICAgZmlsbD0iIzFGNUUzQiIvPgogIDwhLS0gRm9saGEgcGVxdWVuYSAoZGlyZWl0YSwgbWVub3IpIC0tPgogIDxwYXRoIGQ9Ik0gMTE2IDkyCiAgICAgICAgICAgQyAxMzggNjQsIDE2MiA0OCwgMTg4IDQyCiAgICAgICAgICAgQyAxODQgNzAsIDE2MiA4OCwgMTMwIDk4CiAgICAgICAgICAgUSAxMjAgMTAwLCAxMTYgOTYgWiIKICAgICAgICBmaWxsPSIjQTdFMzRCIi8+CiAgPCEtLSBDYXVsZSBjb25lY3RhbmRvIGZvbGhhcyDDoCBtYcOnw6MgLS0+CiAgPHBhdGggZD0iTSAxMTAgOTYgTCAxMTAgMTE1IgogICAgICAgIHN0cm9rZT0iIzFGNUUzQiIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIE1hw6fDozogcm91bmRlZC1zcXVhcmUgY29tIGNhbnRvcyBnZW5lcm9zb3MgLS0+CiAgPHBhdGggZD0iTSAzMCAxNTUKICAgICAgICAgICBDIDMwIDEyMCwgNTUgMTE1LCA4MCAxMTUKICAgICAgICAgICBMIDE0MCAxMTUKICAgICAgICAgICBDIDE2NSAxMTUsIDE5MCAxMjAsIDE5MCAxNTUKICAgICAgICAgICBMIDE5MCAyMDAKICAgICAgICAgICBDIDE5MCAyMzUsIDE2NSAyNTAsIDE0MCAyNTAKICAgICAgICAgICBMIDgwIDI1MAogICAgICAgICAgIEMgNTUgMjUwLCAzMCAyMzUsIDMwIDIwMCBaIgogICAgICAgIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0E3RTM0QiIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDwhLS0gYWkgdGV4dG8gLS0+CiAgPHRleHQgeD0iMTEwIiB5PSIyMTUiCiAgICAgICAgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIEFyaWFsIFJvdW5kZWQgTVQgQm9sZCwgTnVuaXRvLCBJbnRlciwgc3lzdGVtLXVpLCBzYW5zLXNlcmlmIgogICAgICAgIGZvbnQtc2l6ZT0iOTIiIGZvbnQtd2VpZ2h0PSI5MDAiCiAgICAgICAgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0E3RTM0QiIgbGV0dGVyLXNwYWNpbmc9Ii0yIj5haTwvdGV4dD4KPC9nPgo8L3N2Zz4="
+            alt="Sobrou AI">
+          <p>IA para reduzir desperdício em cozinhas profissionais. Transformando sobras em dado e dado em decisão de
+            margem.</p>
+        </div>
+        <div class="footer-cols">
+          <div>
+            <h4>Produto</h4><a href="#roi">Calculadora ROI</a><a href="#demo">Veja em ação</a><a href="#faq">FAQ</a>
+          </div>
+          <div>
+            <h4>Comercial</h4><a href="#contato">Piloto gratuito</a><a href="#problema">O problema</a><a
+              href="#como-funciona">Como funciona</a>
+          </div>
+          <div>
+            <h4>Legal</h4><a href="#">Privacidade</a><a href="#">LGPD</a><a href="#">Termos</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Sobrou AI. Todos os direitos reservados.</span><span>Feito para cozinhas
+          profissionais que querem reduzir perda e aumentar margem.</span></div>
+    </div>
+  </footer>
+  <button class="chat-button" type="button" data-open-chat aria-label="Abrir chat">💬</button>
+  <div class="chat-window" id="chatWindow" aria-live="polite">
+    <div class="chat-head"><img
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJTb2Jyb3UgQUkgc8OtbWJvbG8iPgogIDx0aXRsZT5Tb2Jyb3UgQUk8L3RpdGxlPgogIDxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iOTYiIGZpbGw9IiMwRjNBMjMiLz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MCA4MCkgc2NhbGUoMS41NSkiIGlkPSJzb2Jyb3Utc3ltYm9sIj4KICA8IS0tIEZvbGhhIGdyYW5kZSAoZXNxdWVyZGEsIHZhaSBwcmEgY2ltYS1lc3F1ZXJkYSkgLS0+CiAgPHBhdGggZD0iTSAxMTAgOTUKICAgICAgICAgICBDIDk2IDYwLCA3MCAzMiwgMzIgMjgKICAgICAgICAgICBDIDM2IDY0LCA2MCA5MiwgMTAwIDEwMAogICAgICAgICAgIFEgMTA4IDEwMCwgMTEwIDk1IFoiCiAgICAgICAgZmlsbD0iI0Y3RjRFQSIvPgogIDwhLS0gRm9saGEgcGVxdWVuYSAoZGlyZWl0YSwgbWVub3IpIC0tPgogIDxwYXRoIGQ9Ik0gMTE2IDkyCiAgICAgICAgICAgQyAxMzggNjQsIDE2MiA0OCwgMTg4IDQyCiAgICAgICAgICAgQyAxODQgNzAsIDE2MiA4OCwgMTMwIDk4CiAgICAgICAgICAgUSAxMjAgMTAwLCAxMTYgOTYgWiIKICAgICAgICBmaWxsPSIjQTdFMzRCIi8+CiAgPCEtLSBDYXVsZSBjb25lY3RhbmRvIGZvbGhhcyDDoCBtYcOnw6MgLS0+CiAgPHBhdGggZD0iTSAxMTAgOTYgTCAxMTAgMTE1IgogICAgICAgIHN0cm9rZT0iI0Y3RjRFQSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8IS0tIE1hw6fDozogcm91bmRlZC1zcXVhcmUgY29tIGNhbnRvcyBnZW5lcm9zb3MgLS0+CiAgPHBhdGggZD0iTSAzMCAxNTUKICAgICAgICAgICBDIDMwIDEyMCwgNTUgMTE1LCA4MCAxMTUKICAgICAgICAgICBMIDE0MCAxMTUKICAgICAgICAgICBDIDE2NSAxMTUsIDE5MCAxMjAsIDE5MCAxNTUKICAgICAgICAgICBMIDE5MCAyMDAKICAgICAgICAgICBDIDE5MCAyMzUsIDE2NSAyNTAsIDE0MCAyNTAKICAgICAgICAgICBMIDgwIDI1MAogICAgICAgICAgIEMgNTUgMjUwLCAzMCAyMzUsIDMwIDIwMCBaIgogICAgICAgIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0E3RTM0QiIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDwhLS0gYWkgdGV4dG8gLS0+CiAgPHRleHQgeD0iMTEwIiB5PSIyMTUiCiAgICAgICAgZm9udC1mYW1pbHk9Ik1hbnJvcGUsIEFyaWFsIFJvdW5kZWQgTVQgQm9sZCwgTnVuaXRvLCBJbnRlciwgc3lzdGVtLXVpLCBzYW5zLXNlcmlmIgogICAgICAgIGZvbnQtc2l6ZT0iOTIiIGZvbnQtd2VpZ2h0PSI5MDAiCiAgICAgICAgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0E3RTM0QiIgbGV0dGVyLXNwYWNpbmc9Ii0yIj5haTwvdGV4dD4KPC9nPgo8L3N2Zz4="
+        alt="">
+      <div><b>Sobrou AI</b><small>Normalmente responde em poucos minutos</small></div>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg bot">Oi! Sou a assistente da Sobrou AI. Você quer estimar desperdício, entender o piloto ou falar
+        com alguém do time?</div>
+    </div>
+    <form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Digite sua dúvida..."><button
+        type="submit">Enviar</button></form>
+  </div>
+  <div class="analytics-badge" title="Eventos salvos em window.dataLayer e localStorage"><i></i><span>Analytics demo
+      ativo</span></div>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
